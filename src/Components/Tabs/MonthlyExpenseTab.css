@@ -1,0 +1,10 @@
+.newExpense {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.output {
+    color: rgb(168, 161, 64);
+}

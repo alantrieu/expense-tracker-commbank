@@ -1,9 +1,10 @@
 import './NewExpenseTab.css';
+import NewExpenseForm from '../NewExpense/NewExpenseForm';
 
 const NewExpenseTab = () => {
     return (
-        <div className="NewExpenseTab">
-            <p>First Tab!! Hurray!!</p>
+        <div className="output">
+            <NewExpenseForm />
             {/* First tab content will go here */}
         </div>
     );

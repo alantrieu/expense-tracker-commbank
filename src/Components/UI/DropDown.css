@@ -1,0 +1,17 @@
+.dropdown-button {
+    --button-size: var(--nav-size);
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: #ffffff;
+    border-radius: 40%;
+    padding: 1px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 500ms;
+}
+
+.dropdown-button:hover {
+    filter: opacity(50%);
+}

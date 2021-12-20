@@ -5,9 +5,6 @@ const App = () => {
     return (
     <div>
         <Tab />
-        <section className='title'>
-            Monthly Spend
-        </section>
     </div>
     )
 };

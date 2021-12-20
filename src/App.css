@@ -2,20 +2,13 @@
     background: grey;
 } */
 
-.app {
+.App {
     width: 100vw;
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-.title {
-    border: 15px solid rgb(173, 172, 172);
-    background: rgb(173, 172, 172);
-    padding-left: 45%;
-    box-shadow: 0 2px 7px silver;
+    background-color: rgb(216, 216, 191);
 }
 
 /* .graph {

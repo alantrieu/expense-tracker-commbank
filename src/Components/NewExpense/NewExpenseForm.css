@@ -28,10 +28,15 @@
     color: white;
     border-radius: 2rem;
     margin-right: 1rem;
+    transition: filter 500ms;
 }
 
 .new-expense__submit button:hover {
     background: #39A2DB;
+}
+
+.new-expense__submit button:active {
+    border-color: white;
 }
 
 .category-type {

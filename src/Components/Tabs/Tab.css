@@ -7,10 +7,10 @@
 
 /* main tab container */
 .Tab {
-    width: 90%;
-    height: auto;
+    width: 800px;
     min-height: 400px;
-    background: #095364;
+    min-width: 800px;
+    background-color: #095364;
     margin: 3.5rem auto 1.5rem;
     padding: 2rem 1rem;
     color: #ffffff;
@@ -52,21 +52,9 @@ ul.nav li:nth-child(2) {
 }
 
 ul.nav li:hover {
-    background: rgba(45, 223, 193, 0.699);
+    background: #66b1cc;
 }
 
 ul.nav li.active {
     background: #39A2DB;
 }
-
-/* .output {
-    color: rgb(34, 143, 98);
-} */
-
-/* more specific tab styles */ 
-/* .NewExpenseTab p,
-.MonthlyExpenseTab p {
-    font-size: 2rem;
-    text-align: center;
-    color: bisque;
-} */

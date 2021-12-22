@@ -9,7 +9,9 @@ const DropDown = (props) => {
             <a href="/#" className='dropdown-button' onClick={() => setOpen(!open)}>
                 {props.icon}
             </a>
-            {open && props.children}
+            <div onClick={() => setOpen(false)}>
+                {open && props.children}
+            </div>
         </div>
     );
 };

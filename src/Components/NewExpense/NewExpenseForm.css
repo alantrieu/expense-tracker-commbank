@@ -15,8 +15,6 @@
 
 .new-expense__submit {
     text-align: right;
-    position: fixed;
-    top: 375px;
 }
 
 .new-expense__submit button {

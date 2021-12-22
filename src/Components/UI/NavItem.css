@@ -11,6 +11,7 @@
     justify-content: center;
     transition: filter 500ms;
     color: black;
+    position: static;
 }
 
 .icon-button:hover {
@@ -24,7 +25,7 @@
 .nav-title__wrapper {
     flex-wrap: wrap;
     text-align: left;
-    transform: translateX(75px) translateY(-50px);
+    transform: translateX(80px) translateY(-50px);
     color: beige;
     opacity: 50%;
 }

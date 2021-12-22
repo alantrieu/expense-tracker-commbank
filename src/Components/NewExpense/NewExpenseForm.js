@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import {NavBar, NavItem} from '../UI/NavBar';
+import NavBar from '../UI/NavBar';
+import NavItem from '../UI/NavItem';
 import DropDown from '../UI/DropDown';
 
 import { ReactComponent as DropDownIcon } from '../../icons/arrowDown.svg';
@@ -23,11 +24,11 @@ import { ReactComponent as UtilitiesIcon } from '../../icons/utilities.svg';
 import './NewExpenseForm.css';
 
 const NewExpenseForm = (props) => {
-    // each expense has a title, date, amount and type
+    // each expense has a title, date, amount and category
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
-    const [enteredCategory, setCategory] = useState('');
+    const [enteredCategory, setCategory] = useState('Uncategorised');
 
     const titleHandler = (event) => {
         setEnteredTitle(event.target.value);
@@ -41,9 +42,13 @@ const NewExpenseForm = (props) => {
         setEnteredDate(event.target.value);
     }
 
-    const categoryHandler = (event) => {
-        setCategory(event.target.value);
-    }
+    const [dropDownIcon, setDropDownIcon] = useState(< DropDownIcon />);
+
+    // matches dropdown icon and displayed type to selected category
+    const clickIconHandler = (newIcon, newCategory) => {
+        setDropDownIcon(newIcon); 
+        setCategory(newCategory);
+    };
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -78,28 +83,34 @@ const NewExpenseForm = (props) => {
                     <input type='date' min='2020-01-01' max='2021-12-31' value={enteredDate} onChange={dateHandler} />
                 </div>
                 <div className='new-expense'>
-                    <label>Category</label>
-                    <NavBar>
-                        <DropDown icon={<DropDownIcon />}>
-                            <NavItem icon={<BusinessIcon />} title='Business'/>
-                            <NavItem icon={<CashIcon />} title='Cash'/>
-                            <NavItem icon={<DonationsIcon />} title='Donations'/>
-                            <NavItem icon={<EatingOutIcon />} title='Eating Out'/>
-                            <NavItem icon={<EducationIcon />} title='Education'/>
-                            <NavItem icon={<EntertainmentIcon />} title='Entertainment'/>
-                            <NavItem icon={<FeesIcon />} title='Fees and Interest'/>
-                            <NavItem icon={<GroceriesIcon />} title='Groceries'/>
-                            <NavItem icon={<HealthIcon />} title='Health'/>
-                            <NavItem icon={<HomeIcon />} title='Home'/>
-                            <NavItem icon={<ShoppingIcon />} title='Shopping'/>
-                            <NavItem icon={<TaxIcon />} title='Tax'/>
-                            <NavItem icon={<UtilitiesIcon />} title='Utilities'/>
-                            <NavItem icon={<TravelIcon />} title='Travel'/>
-                            <NavItem icon={<TransportIcon />} title='Transport'/>
-                            <NavItem icon={<UncategorisedIcon />} title='Uncategorised'/>
-                        </DropDown>
-                    </NavBar>
+                    <label onClick={clickIconHandler}>Category</label>
+                    <div className='category-type'>
+                        {enteredCategory}
+                    </div>
                 </div>
+                <NavBar>
+                    <DropDown icon={dropDownIcon}>
+                        <NavItem icon={<BusinessIcon />} title='Business' selectIcon={clickIconHandler} />
+                        <NavItem icon={<CashIcon />} title='Cash' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<DonationsIcon />} title='Donations' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<EatingOutIcon />} title='Eating Out' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<EducationIcon />} title='Education' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<EntertainmentIcon />} title='Entertainment' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<FeesIcon />} title='Fees and Interest' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<GroceriesIcon />} title='Groceries' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<HealthIcon />} title='Health' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<HomeIcon />} title='Home' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<ShoppingIcon />} title='Shopping' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<TaxIcon />} title='Tax' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<UtilitiesIcon />} title='Utilities' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<TravelIcon />} title='Travel' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<TransportIcon />} title='Transport' selectIcon={clickIconHandler}/>
+                        <NavItem icon={<UncategorisedIcon />} title='Uncategorised' selectIcon={clickIconHandler}/>
+                    </DropDown>
+                </NavBar>
+            </div>
+            <div className='new-expense__submit'>
+                <button type='submit'>Add</button>
             </div>
         </form>
     );

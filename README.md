@@ -3,7 +3,7 @@ Short project to apply basic React, Javascript and CSS programming skills gained
 
 Idea was loosely based on Commonwealth Bank's monthly cash flow and spend categories features. 
 
-<img src="https://www.commbank.com.au/content/dam/commbank-assets/digital-banking/2019-03/01-Cash-flow-view.jpg" height="450"> <img src="https://www.commbank.com.au/content/dam/commbank-assets/digital-banking/2019-03/01-Cash-flow-view.jpg" height="450">
+<img src="https://www.commbank.com.au/content/dam/commbank-assets/digital-banking/2019-03/01-Cash-flow-view.jpg" height="450"> <img src="https://www.commbank.com.au/content/dam/commbank-assets/digital-banking/2019-03/02-cash-flow-view-monthly-spending.jpg" height="450">
 
 # Credits
 Tab creation was based on [this guide](https://blog.logrocket.com/how-to-build-tab-component-react/).

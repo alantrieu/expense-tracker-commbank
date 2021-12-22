@@ -5,12 +5,12 @@ const DropDown = (props) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <li>
+        <div>
             <a href="/#" className='dropdown-button' onClick={() => setOpen(!open)}>
                 {props.icon}
             </a>
             {open && props.children}
-        </li>
+        </div>
     );
 };
 

@@ -3,7 +3,6 @@ import NavBar from '../UI/NavBar';
 import NavItem from '../UI/NavItem';
 import DropDown from '../UI/DropDown';
 
-import { ReactComponent as DropDownIcon } from '../../icons/arrowDown.svg';
 import { ReactComponent as BusinessIcon } from '../../icons/business.svg';
 import { ReactComponent as CashIcon } from '../../icons/cash.svg';
 import { ReactComponent as DonationsIcon } from '../../icons/donations.svg';
@@ -42,7 +41,7 @@ const NewExpenseForm = (props) => {
         setEnteredDate(event.target.value);
     }
 
-    const [dropDownIcon, setDropDownIcon] = useState(< DropDownIcon />);
+    const [dropDownIcon, setDropDownIcon] = useState(< UncategorisedIcon />);
 
     // matches dropdown icon and displayed type to selected category
     const clickIconHandler = (newIcon, newCategory) => {

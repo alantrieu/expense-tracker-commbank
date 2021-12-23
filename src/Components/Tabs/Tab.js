@@ -4,6 +4,8 @@ import MonthlyExpenseTab from "./MonthlyExpenseTab";
 import './Tab.css';
 
 const Tabs = () => {
+
+    // using states to manage our different tabs
     const [activeTab, setActiveTab] = useState("NewExpenseTab");
 
     const switchNewExpenseTab = () => {
@@ -12,6 +14,17 @@ const Tabs = () => {
 
     const switchMonthlyExpenseTab = () => {
         setActiveTab("MonthlyExpenseTab");
+    };
+
+    const INITIAL_EXPENSES = [];
+
+    // using states to keep a database of expenses
+    const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
+
+    const addExpenseHandler = (newExpense) => {
+        setExpenses((prevExpenses) => {
+            return [newExpense, ...prevExpenses];
+        });
     };
 
     return (
@@ -27,7 +40,8 @@ const Tabs = () => {
             </ul>
             <div>
                 {/* content will be shown here */}
-                {activeTab === "NewExpenseTab" ? <NewExpenseTab /> : <MonthlyExpenseTab />}
+                {activeTab === "NewExpenseTab" ? 
+                    <NewExpenseTab onAddExpense={addExpenseHandler}/> : <MonthlyExpenseTab myExpenses={expenses}/>}
             </div>
         </div>
     );

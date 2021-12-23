@@ -1,14 +1,11 @@
+import ExpensesList from './ExpensesList';
 import './MonthlyExpenseTab.css';
 
-const MonthlyExpenseTab = () => {
+const MonthlyExpenseTab = (props) => {
     return (
-        // <div className='output'>
-        //     Monthly Expense
-        // </div>
-
-        <section >
-            &lt;add content here&gt;
-        </section>
+        <div >
+            <ExpensesList myExpenses={props.myExpenses} />
+        </div>
     )
 };
 

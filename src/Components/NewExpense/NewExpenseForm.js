@@ -3,22 +3,22 @@ import NavBar from '../UI/NavBar';
 import NavItem from '../UI/NavItem';
 import DropDown from '../UI/DropDown';
 
-import { ReactComponent as BusinessIcon } from '../../icons/business.svg';
-import { ReactComponent as CashIcon } from '../../icons/cash.svg';
-import { ReactComponent as DonationsIcon } from '../../icons/donations.svg';
-import { ReactComponent as EatingOutIcon } from '../../icons/eatingout.svg';
-import { ReactComponent as EducationIcon } from '../../icons/education.svg';
-import { ReactComponent as EntertainmentIcon } from '../../icons/entertainment.svg';
-import { ReactComponent as FeesIcon } from '../../icons/fees.svg';
-import { ReactComponent as GroceriesIcon } from '../../icons/groceries.svg';
-import { ReactComponent as HealthIcon } from '../../icons/health.svg';
-import { ReactComponent as HomeIcon } from '../../icons/home.svg';
-import { ReactComponent as ShoppingIcon } from '../../icons/shopping.svg';
-import { ReactComponent as TaxIcon } from '../../icons/tax.svg';
-import { ReactComponent as TransportIcon } from '../../icons/transport.svg';
-import { ReactComponent as TravelIcon } from '../../icons/travel.svg';
-import { ReactComponent as UncategorisedIcon } from '../../icons/uncategorised.svg';
-import { ReactComponent as UtilitiesIcon } from '../../icons/utilities.svg';
+import { ReactComponent as BusinessIcon } from '../../Icons/business.svg';
+import { ReactComponent as CashIcon } from '../../Icons/cash.svg';
+import { ReactComponent as DonationsIcon } from '../../Icons/donations.svg';
+import { ReactComponent as EatingOutIcon } from '../../Icons/eatingout.svg';
+import { ReactComponent as EducationIcon } from '../../Icons/education.svg';
+import { ReactComponent as EntertainmentIcon } from '../../Icons/entertainment.svg';
+import { ReactComponent as FeesIcon } from '../../Icons/fees.svg';
+import { ReactComponent as GroceriesIcon } from '../../Icons/groceries.svg';
+import { ReactComponent as HealthIcon } from '../../Icons/health.svg';
+import { ReactComponent as HomeIcon } from '../../Icons/home.svg';
+import { ReactComponent as ShoppingIcon } from '../../Icons/shopping.svg';
+import { ReactComponent as TaxIcon } from '../../Icons/tax.svg';
+import { ReactComponent as TransportIcon } from '../../Icons/transport.svg';
+import { ReactComponent as TravelIcon } from '../../Icons/travel.svg';
+import { ReactComponent as UncategorisedIcon } from '../../Icons/uncategorised.svg';
+import { ReactComponent as UtilitiesIcon } from '../../Icons/utilities.svg';
 
 import './NewExpenseForm.css';
 
@@ -63,7 +63,7 @@ const NewExpenseForm = (props) => {
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
-        setCategory('');
+        setCategory('Uncategorised');
     };
 
     return (

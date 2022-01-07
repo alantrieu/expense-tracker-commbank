@@ -50,7 +50,11 @@ const NewExpenseForm = (props) => {
     };
 
     const submitHandler = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // prevents the page from being refreshed after clicking submit
+
+        if (enteredTitle === '' || enteredAmount === '' || enteredDate === '') {
+            return; // do not add anything if we have invalid data
+        }
 
         const expenseData = {
             title: enteredTitle,
@@ -59,7 +63,7 @@ const NewExpenseForm = (props) => {
             category: enteredCategory,
         };
 
-        props.onSaveExpenseData(expenseData); // TODO: explain this
+        props.onSaveExpenseData(expenseData); // use calling function's data-saving method
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');

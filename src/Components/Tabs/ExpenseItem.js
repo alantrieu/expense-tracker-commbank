@@ -3,11 +3,10 @@ import Card from '../UI/Card.js';
 import './ExpenseItem.css';
 
 const ExpenseItem = (props) => {
-
-    // get dates
-    const day = props.date.toLocaleString('en-AU', { day: '2-digit' });
-    const month = props.date.toLocaleString('en-AU', { month: 'long' });
-    const year = props.date.getFullYear();
+    // extract dates to display nicely
+    // const day = props.date.toLocaleString('en-AU', { day: '2-digit' });
+    // const month = props.date.toLocaleString('en-AU', { month: 'long' });
+    // const year = props.date.getFullYear();
 
     return (
         <li>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import NavBar from '../UI/NavBar';
 import NavItem from '../UI/NavItem';
 import DropDown from '../UI/DropDown';
+import Modal from '../UI/Modal';
 
 import { ReactComponent as BusinessIcon } from '../../Icons/business.svg';
 import { ReactComponent as CashIcon } from '../../Icons/cash.svg';
@@ -28,20 +29,25 @@ const NewExpenseForm = (props) => {
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
     const [enteredCategory, setCategory] = useState('Uncategorised');
+    const [dropDownIcon, setDropDownIcon] = useState(< UncategorisedIcon />);
+
+    const [error, setError] = useState(); // determines if an error modal pops up from invalid data
 
     const titleHandler = (event) => {
         setEnteredTitle(event.target.value);
-    }
+    };
 
     const amountHandler = (event) => {
         setEnteredAmount(event.target.value);
-    }
+    };
 
     const dateHandler = (event) => {
         setEnteredDate(event.target.value);
-    }
+    };
 
-    const [dropDownIcon, setDropDownIcon] = useState(< UncategorisedIcon />);
+    const modalHandler = () => { 
+        setError(null); 
+    }; // pass modalHandler to <Modal /> where it is used to close pop-up 
 
     // matches dropdown icon and displayed type to selected category
     const clickIconHandler = (newIcon, newCategory) => {
@@ -52,7 +58,12 @@ const NewExpenseForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault(); // prevents the page from being refreshed after clicking submit
 
+        // trigger pop-up error modal
         if (enteredTitle === '' || enteredAmount === '' || enteredDate === '') {
+            setError({
+                title: 'Empty Input',
+                message: 'Please enter a non-empty title, amount and date.'
+            });
             return; // do not add anything if we have invalid data
         }
 
@@ -71,51 +82,54 @@ const NewExpenseForm = (props) => {
     };
 
     return (
-        <form onSubmit={submitHandler}>
-            <div className='new-expense__wrapper'>
-                <div className='new-expense'>
-                    <label>Title</label>
-                    <input type='text' value={enteredTitle} onChange={titleHandler} />
-                </div>
-                <div className='new-expense'>
-                    <label>Amount</label>
-                    <input type='number' min='0.01' step='0.01' value={enteredAmount} onChange={amountHandler} />
-                </div>
-                <div className='new-expense'>
-                    <label>Date</label>
-                    <input type='date' min='2020-01-01' max='2021-12-31' value={enteredDate} onChange={dateHandler} />
-                </div>
-                <div className='new-expense'>
-                    <label onClick={clickIconHandler}>Category</label>
-                    <div className='category-type'>
-                        {enteredCategory}
+        <div>
+            {error && <Modal title={error.title} message={error.message} onConfirm={modalHandler} />}
+            <form onSubmit={submitHandler}>
+                <div className='new-expense__wrapper'>
+                    <div className='new-expense'>
+                        <label>Title</label>
+                        <input type='text' value={enteredTitle} onChange={titleHandler} />
                     </div>
+                    <div className='new-expense'>
+                        <label>Amount</label>
+                        <input type='number' min='0.01' step='0.01' value={enteredAmount} onChange={amountHandler} />
+                    </div>
+                    <div className='new-expense'>
+                        <label>Date</label>
+                        <input type='date' min='2020-01-01' max='2021-12-31' value={enteredDate} onChange={dateHandler} />
+                    </div>
+                    <div className='new-expense'>
+                        <label onClick={clickIconHandler}>Category</label>
+                        <div className='category-type'>
+                            {enteredCategory}
+                        </div>
+                    </div>
+                    <NavBar>
+                        <DropDown icon={dropDownIcon}>
+                            <NavItem icon={<BusinessIcon />} title='Business' selectIcon={clickIconHandler} />
+                            <NavItem icon={<CashIcon />} title='Cash' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<DonationsIcon />} title='Donations' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<EatingOutIcon />} title='Eating Out' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<EducationIcon />} title='Education' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<EntertainmentIcon />} title='Entertainment' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<FeesIcon />} title='Fees and Interest' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<GroceriesIcon />} title='Groceries' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<HealthIcon />} title='Health' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<HomeIcon />} title='Home' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<ShoppingIcon />} title='Shopping' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<TaxIcon />} title='Tax' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<UtilitiesIcon />} title='Utilities' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<TravelIcon />} title='Travel' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<TransportIcon />} title='Transport' selectIcon={clickIconHandler}/>
+                            <NavItem icon={<UncategorisedIcon />} title='Uncategorised' selectIcon={clickIconHandler}/>
+                        </DropDown>
+                    </NavBar>
                 </div>
-                <NavBar>
-                    <DropDown icon={dropDownIcon}>
-                        <NavItem icon={<BusinessIcon />} title='Business' selectIcon={clickIconHandler} />
-                        <NavItem icon={<CashIcon />} title='Cash' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<DonationsIcon />} title='Donations' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<EatingOutIcon />} title='Eating Out' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<EducationIcon />} title='Education' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<EntertainmentIcon />} title='Entertainment' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<FeesIcon />} title='Fees and Interest' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<GroceriesIcon />} title='Groceries' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<HealthIcon />} title='Health' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<HomeIcon />} title='Home' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<ShoppingIcon />} title='Shopping' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<TaxIcon />} title='Tax' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<UtilitiesIcon />} title='Utilities' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<TravelIcon />} title='Travel' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<TransportIcon />} title='Transport' selectIcon={clickIconHandler}/>
-                        <NavItem icon={<UncategorisedIcon />} title='Uncategorised' selectIcon={clickIconHandler}/>
-                    </DropDown>
-                </NavBar>
-            </div>
-            <div className='new-expense__submit'>
-                <button type='submit'>Add</button>
-            </div>
-        </form>
+                <div className='new-expense__submit'>
+                    <button type='submit'>Add</button>
+                </div>
+            </form>
+        </div>
     );
 };
 

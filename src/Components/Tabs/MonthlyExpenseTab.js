@@ -7,9 +7,14 @@ import './MonthlyExpenseTab.css';
 
 const MonthlyExpenseTab = (props) => {
     const [chartYear, setChartYear] = useState('2022');
+    const [chartMonth, setChartMonth] = useState(0); // default 0 to indicate January
 
-    const chartChangeHandler = (newYear) => {
-        setChartYear(newYear);
+    const yearChangeHandler = (selectedYear) => {
+        setChartYear(selectedYear);
+    };
+
+    const monthChangeHandler = (selectedMonth) => {
+        setChartMonth(selectedMonth);
     };
 
     const filteredExpenses = props.myExpenses.filter(expense => {
@@ -17,10 +22,10 @@ const MonthlyExpenseTab = (props) => {
     });
 
     return (
-        <AuthContext.Provider value={{currMonth: 'Jan',}} >
-            <ExpensesFilter selected={chartYear} onChangeFilter={chartChangeHandler}/>
-            <ExpensesChart expense={filteredExpenses} />
-            <ExpensesList myExpenses={filteredExpenses} />
+        <AuthContext.Provider value={{currMonth: chartMonth,}}>
+            <ExpensesFilter selected={chartYear} onChangeFilter={yearChangeHandler}/>
+            <ExpensesChart expense={filteredExpenses} onChangeMonth={monthChangeHandler}/>
+            <ExpensesList myExpenses={filteredExpenses}/>
         </AuthContext.Provider>
     );
 };

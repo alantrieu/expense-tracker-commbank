@@ -8,7 +8,7 @@ const Chart = (props) => {
     return (
         <div className="chart">
             {props.expenses.map(expense => 
-                <ChartBar key={expense.label} value={expense.value} maxValue={totalMax} label={expense.label} />
+                <ChartBar key={expense.label} value={expense.value} maxValue={totalMax} label={expense.label} index={expense.index} onChangeMonth={props.onChangeMonth}/>
             )}
         </div>
     )

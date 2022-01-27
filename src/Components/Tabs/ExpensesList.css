@@ -1,9 +1,20 @@
 .expenses-list {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .expenses-list__fallback {
-  color: white;
-  text-align: center;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.expense-title {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    /* align-items: center; */
+    padding: 0.5rem;
+    margin: 1rem 35%;
+    background-color: #39A2DB;
 }

@@ -29,7 +29,6 @@ const Tabs = () => {
 
     return (
         <div className="Tab">
-            {/* Tab nav */}
             <ul className="nav">
                 <li className={activeTab === "NewExpenseTab" ? "active" : ""} onClick={switchNewExpenseTab}>
                     New Expense
@@ -39,7 +38,6 @@ const Tabs = () => {
                 </li>
             </ul>
             <div>
-                {/* content will be shown here */}
                 {activeTab === "NewExpenseTab" ? 
                     <NewExpenseTab onAddExpense={addExpenseHandler}/> : <MonthlyExpenseTab myExpenses={expenses}/>}
             </div>

@@ -39,7 +39,9 @@ const Tabs = () => {
             </ul>
             <div>
                 {activeTab === "NewExpenseTab" ? 
-                    <NewExpenseTab onAddExpense={addExpenseHandler}/> : <MonthlyExpenseTab myExpenses={expenses}/>}
+                    <NewExpenseTab onAddExpense={addExpenseHandler} /> :
+                    <MonthlyExpenseTab myExpenses={expenses.sort(function (firstExp, secondExp) { return secondExp.date - firstExp.date })}/>
+                }
             </div>
         </div>
     );

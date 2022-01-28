@@ -51,10 +51,9 @@
 .expense-date {
     display: flex;
     flex-direction: column;
-    width: 12rem;
-    height: 5.5rem;
+    width: 8rem;
+    height: 4rem;
     border: 2px solid #ececec;
-    background-color: #39A2DB;
     color: white;
     border-radius: 12px;
     align-items: center;
@@ -63,7 +62,7 @@
 }
 
 .expense-date__month {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -72,6 +71,6 @@
 }
 
 .expense-date__day {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
 }

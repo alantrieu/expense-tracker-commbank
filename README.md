@@ -14,6 +14,18 @@ A particular design choice I wanted to highlight is seen in Tab.js, where <NewEx
 
 When trying to filter expenses by month, I applied the useContext hook (see ExpensesList.js & MonthlyExpenseTab.js in the Tabs subfolder). I recognised that within the DOM tree, as I needed to receive the selected month in <ExpensesChart/>, push it up to <MonthlyExpenseTab/>, then hand it down to <ExpensesList/>, it was easier to just use a Context object with the useContext hook. I did not apply useContext with some functions that are 'prop drilled' (e.g. monthChangeHandler in MonthExpenseTab.js is passed thrice before being used) because these functions were not used outside the small selection of child components (i.e. not used globally and by many other components), so it seemed unnecessary. 
 
+# It works!
+<img src=md_resources/chart-dropdown.png width="500"> 
+<img src=md_resources/date-dropdown.png width="500">
+
+Having multiple expenses:
+
+![multiple-expenses_gif](md_resources/multiple-expenses.gif)
+
+Error-Handling:
+
+![error_handling_gif](md_resources/error-handling.gif)
+
 # Credits
 Tab creation was based on [this guide](https://blog.logrocket.com/how-to-build-tab-component-react/).
 

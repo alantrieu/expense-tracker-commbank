@@ -1,12 +1,18 @@
 import './NewExpenseTab.css';
 import NewExpenseForm from '../NewExpense/NewExpenseForm';
 
-const NewExpenseTab = () => {
+const NewExpenseTab = (props) => {
+    const saveExpenseDataHandler = (newExpenseData) => {
+        const expenseData = {
+            ...newExpenseData,
+            id: Math.random().toString() // new data should have a unique id key
+        };
+        // call higher level props attribute to add this data to database
+        props.onAddExpense(expenseData); 
+    };
+
     return (
-        <div className="output">
-            <NewExpenseForm />
-            {/* First tab content will go here */}
-        </div>
+        <NewExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     );
 };
 

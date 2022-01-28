@@ -10,4 +10,41 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
+    text-align: left;
+}
+
+.new-expense__submit {
+    text-align: right;
+}
+
+.new-expense__submit button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #39A2DB;
+    background-color: #095364;
+    color: white;
+    border-radius: 2rem;
+    margin-right: 1rem;
+    transition: filter 500ms;
+}
+
+.new-expense__submit button:hover {
+    background: #39A2DB;
+}
+
+.new-expense__submit button:active {
+    border-color: white;
+}
+
+.category-type {
+    height: max-content;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #39A2DB;
+    border: 1px solid white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }

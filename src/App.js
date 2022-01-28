@@ -3,7 +3,7 @@ import Tab from './Components/Tabs/Tab';
 
 const App = () => {
     return (
-    <div>
+    <div className="App">
         <Tab />
     </div>
     )
